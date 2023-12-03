@@ -10738,7 +10738,11 @@ body > .section {
   color: #fcee09 !important;
 }
 .image.is-7by3 {
+<<<<<<< HEAD
+  padding-top: 17.8%;
+=======
   padding-top: 42.8%;
+>>>>>>> 1177b1d0b2135abea645f74359c8b8afb66882e9
 }
 .image.is-7by3 img {
   bottom: 0;
