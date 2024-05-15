@@ -2907,7 +2907,8 @@ a.navbar-item:hover,
 a.navbar-item.is-active,
 .navbar-link.is-active {
   background-color: #fafafa;
-  font-weight: bold;
+  border-bottom: 1px solid #000;
+  text-transform: uppercase;
 }
 .navbar-item {
   display: block;
