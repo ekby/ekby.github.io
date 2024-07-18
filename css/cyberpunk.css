@@ -2907,7 +2907,8 @@ a.navbar-item:hover,
 a.navbar-item.is-active,
 .navbar-link.is-active {
   background-color: transparent;
-  color: #000;
+  border-bottom: 1px solid #000;
+  text-transform: uppercase;
 }
 .navbar-item {
   display: block;
@@ -3210,10 +3211,6 @@ a.navbar-item.is-active,
   html.has-spaced-navbar-fixed-bottom,
   body.has-spaced-navbar-fixed-bottom {
     padding-bottom: 5rem;
-  }
-  a.navbar-item.is-active,
-  .navbar-link.is-active {
-    color: #000;
   }
   a.navbar-item.is-active:not(:focus):not(:hover),
   .navbar-link.is-active:not(:focus):not(:hover) {
@@ -11372,7 +11369,7 @@ figure.highlight.foldable div.level-left {
   color: $white-invert;
 }
 .widget .tags .tag:first-child {
-  background: #fcee09;
+  background: #099;
   color: #121617;
 }
 .widget .tags .tag:last-child {
