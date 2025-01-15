@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Git基本用法 - Official XIA</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Official XIA"><meta name="msapplication-TileImage" content="/img/香蕉水果.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Official XIA"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="Git Basic Usage"><meta property="og:type" content="blog"><meta property="og:title" content="Git基本用法"><meta property="og:url" content="https://xiaruncheng.fun/Tool/zh-CN/841978d3a704/"><meta property="og:site_name" content="Official XIA"><meta property="og:description" content="Git Basic Usage"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://xiaruncheng.fun/img/og_image.png"><meta property="article:published_time" content="2024-07-09T13:03:50.000Z"><meta property="article:modified_time" content="2024-07-12T11:52:23.646Z"><meta property="article:author" content="Runcheng XIA"><meta property="article:tag" content="git"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://xiaruncheng.fun/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://xiaruncheng.fun/Tool/zh-CN/841978d3a704/"},"headline":"Git基本用法","image":["https://xiaruncheng.fun/img/og_image.png"],"datePublished":"2024-07-09T13:03:50.000Z","dateModified":"2024-07-12T11:52:23.646Z","author":{"@type":"Person","name":"Runcheng XIA"},"publisher":{"@type":"Organization","name":"Official XIA","logo":{"@type":"ImageObject","url":null}},"description":"Git Basic Usage"}</script><link rel="canonical" href="https://xiaruncheng.fun/Tool/zh-CN/841978d3a704/"><link rel="icon" href="/img/%E9%A6%99%E8%95%89%E6%B0%B4%E6%9E%9C.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark-reasonable.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css"><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><style>@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');</style><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-1-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">Official XIA</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-12"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-07-09T13:03:50.000Z" title="2024/7/9 21:03:50">2024-07-09</time></span><span class="level-item"><a class="link-muted" href="/categories/Tool/">Tool</a></span></div></div><h1 class="title is-3 is-size-4-mobile" style="font-size: 1.6rem; margin-bottom: 0.8rem">Git基本用法</h1><div class="content"><p>Git Basic Usage</p>
+<span id="more"></span>
+<hr>
+<h2 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h2><figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">git init  <span class="comment"># 初始化一个空的 Git 仓库</span></span><br><span class="line"></span><br><span class="line">git remote add origin &lt;Git Repository&gt;  <span class="comment"># 添加远程仓库</span></span><br><span class="line"></span><br><span class="line">git add .  <span class="comment"># 将所有文件添加到暂存区</span></span><br><span class="line"></span><br><span class="line">git commit -m <span class="string">&quot;First Commit&quot;</span>  <span class="comment"># 提交更改并添加提交信息</span></span><br><span class="line"></span><br><span class="line">git status  <span class="comment"># 查看当前所在的分支和提交状态</span></span><br><span class="line"></span><br><span class="line">git branch -l  <span class="comment"># 查看分支列表</span></span><br><span class="line"></span><br><span class="line">git checkout -b master  <span class="comment"># 创建并切换到 master 分支</span></span><br><span class="line"></span><br><span class="line">git push origin master -f  <span class="comment"># 强制将 master 分支推送到远程仓库</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="何时使用-git-fetch-和-git-pull"><a href="#何时使用-git-fetch-和-git-pull" class="headerlink" title="何时使用 git fetch 和 git pull"></a>何时使用 <code>git fetch</code> 和 <code>git pull</code></h2><ul>
+<li><p>使用 <code>git pull</code>：</p>
+<ul>
+<li>想要快速同步远程仓库的更新到当前分支。</li>
+<li>不担心合并冲突或已经处理了所有潜在冲突。</li>
+</ul>
+  <figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取并合并更新</span></span><br><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 <code>git fetch</code>：</p>
+<ul>
+<li>想要查看远程仓库的更新但不希望立即合并。</li>
+<li>需要在合并前检查或处理潜在的冲突。</li>
+</ul>
+  <figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取远程更新</span></span><br><span class="line">git fetch origin</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看更新</span></span><br><span class="line">git <span class="built_in">log</span> origin/master</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并更新到当前分支</span></span><br><span class="line">git merge origin/master</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><blockquote>
+<p>全部支持的语法名字参见 <a target="_blank" rel="noopener" href="https://highlightjs.org/demo">https://highlightjs.org/demo</a></p>
+</blockquote>
+</div><div class="article-licensing box"><div class="licensing-title"><p>Git基本用法</p><p><a href="https://xiaruncheng.fun/Tool/zh-CN/841978d3a704/">https://xiaruncheng.fun/Tool/zh-CN/841978d3a704/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Runcheng XIA</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2024-07-09</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2024-07-12</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/git/">git</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/Article/zh-CN/876aa7c54564/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">留学的经济回报与现实考量</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/Article/zh-CN/a33e62dcff27/"><span class="level-item">关系中的残酷真相与应对策略</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><!--!--><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">Official XIA</a><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span><p class="is-size-7"><span>&copy; 2023-2024 Runcheng Xia <span style="color: #EF5350">with</span> ❤️</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: ''
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><div id="outdated"><h6>Your browser is out-of-date!</h6><p>Update your browser to view this website correctly.&amp;npsb;<a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p><p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">×</a></p></div><script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script><script>window.addEventListener("load", function () {
+            outdatedBrowser({
+                bgColor: '#f25648',
+                color: '#ffffff',
+                lowerThan: 'object-fit' // display on IE11 or below
+            });
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
