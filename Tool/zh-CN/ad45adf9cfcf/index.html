@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>如何清空重置Conda的base环境 - Official XIA</title><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#3273dc"><meta name="application-name" content="Official XIA"><meta name="msapplication-TileImage" content="/gallery/profile/香蕉水果.svg"><meta name="msapplication-TileColor" content="#3273dc"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Official XIA"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="很多Python&amp;#x2F;机器学习初学者可能刚开始使用conda时会犯这个错误，那就是直接在base环境下面执行conda install 或pip install，这样会导致在错误使用较长时间后，base环境下会堆积大量包，这也体现了conda install的弊端，包装多了分析相互解决屎山依赖的时候就会花费巨量时间。"><meta property="og:type" content="blog"><meta property="og:title" content="如何清空重置Conda的base环境"><meta property="og:url" content="https://xiaruncheng.fun/Tool/zh-CN/ad45adf9cfcf/"><meta property="og:site_name" content="Official XIA"><meta property="og:description" content="很多Python&amp;#x2F;机器学习初学者可能刚开始使用conda时会犯这个错误，那就是直接在base环境下面执行conda install 或pip install，这样会导致在错误使用较长时间后，base环境下会堆积大量包，这也体现了conda install的弊端，包装多了分析相互解决屎山依赖的时候就会花费巨量时间。"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://xiaruncheng.fun/img/og_image.png"><meta property="article:published_time" content="2025-03-11T08:02:03.000Z"><meta property="article:modified_time" content="2025-03-13T15:25:49.527Z"><meta property="article:author" content="Runcheng XIA"><meta property="article:tag" content="conda"><meta property="article:tag" content="python"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://xiaruncheng.fun/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://xiaruncheng.fun/Tool/zh-CN/ad45adf9cfcf/"},"headline":"如何清空重置Conda的base环境","image":["https://xiaruncheng.fun/img/og_image.png"],"datePublished":"2025-03-11T08:02:03.000Z","dateModified":"2025-03-13T15:25:49.527Z","author":{"@type":"Person","name":"Runcheng XIA"},"publisher":{"@type":"Organization","name":"Official XIA","logo":{"@type":"ImageObject","url":null}},"description":"很多Python&#x2F;机器学习初学者可能刚开始使用conda时会犯这个错误，那就是直接在base环境下面执行conda install 或pip install，这样会导致在错误使用较长时间后，base环境下会堆积大量包，这也体现了conda install的弊端，包装多了分析相互解决屎山依赖的时候就会花费巨量时间。"}</script><link rel="canonical" href="https://xiaruncheng.fun/Tool/zh-CN/ad45adf9cfcf/"><link rel="icon" href="/gallery/profile/%E9%A6%99%E8%95%89%E6%B0%B4%E6%9E%9C.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.staticfile.net/highlight.js/11.9.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.staticfile.net/cookieconsent/3.1.1/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.staticfile.net/outdated-browser/1.1.5/outdatedbrowser.min.css"><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.staticfile.net/pace/1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><style>@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');</style><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-1-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">Official XIA</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-12"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2025-03-11T08:02:03.000Z" title="2025/3/11 16:02:03">2025-03-11</time></span><span class="level-item"><a class="link-muted" href="/categories/Tool/">Tool</a></span></div></div><h1 class="title is-3 is-size-4-mobile" style="font-size: 1.6rem; margin-bottom: 0.8rem">如何清空重置Conda的base环境</h1><div class="content"><p>很多Python&#x2F;机器学习初学者可能刚开始使用conda时会犯这个错误，那就是直接在base环境下面执行<code>conda install</code> 或<code>pip install</code>，这样会导致在错误使用较长时间后，base环境下会堆积大量包，这也体现了<code>conda install</code>的弊端，包装多了分析相互解决屎山依赖的时候就会花费巨量时间。</p>
+<span id="more"></span>
+
+<p>&emsp;笔者就是在用了几年后，发现以前的tensorflow&#x2F;torch全装在了base环境下，想重新装一个包搁那<code>Solving environment: \ </code>半个小时，查了半天中文互联网没找到解决方案，在外网看到方案，遂搬运一下。</p>
+<blockquote>
+<p>原贴：<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/41914139/how-to-reset-anaconda-root-environment">How to reset anaconda root environment</a></p>
+</blockquote>
+<hr>
+<h2 id="查看历史版本"><a href="#查看历史版本" class="headerlink" title="查看历史版本"></a>查看历史版本</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda list --revisions</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install --rev 1</span><br></pre></td></tr></table></figure>
+
+<p>恢复到古早版本(或者 rev 0)</p>
+<hr>
+<p>所以正确使用conda的方法应该是，使用conda管理虚拟环境</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n myenv python=3.9</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>&emsp;按需使用conda安装tensorflow&#x2F;torch之类依赖麻烦的包，conda安装不上的一律用pip安装，缺少某个具体特定包的时候一律使用pip安装</p>
+<p>&emsp;<code>conda install</code>以及<code>pip install</code>(在激活conda环境中使用的pip)<code>package</code>都可以在<code>current_env/lib/site-packages</code>找到</p>
+<p>&emsp;conda有严格的检查机制，它会保证你当前装的package安装好之后能work，<em><strong>但是，它只检查用conda安装过的package</strong></em>。</p>
+<p>&emsp;例如，你新安装的package会依赖numpy ，不过你已经安装numpy(1.19.2)，但是用pip安装的，不好意思，它会认为你没安装，然后用conda再安装一个依赖版本的numpy(1.18.5)。这个时候，两个numpy可能就打架了。并且你pip list与conda list显示的numpy版本可能不一致，结果不知道最后运行程序的时候调用了哪个版本的numpy。</p>
+<p>&emsp;这个时候，<code>uninstall</code>可能也卸载不干净，卸了一个还有一个，最后还可能一直list有却是一个空壳。这个时候，只能找到anaconda的<code>lib/site-packages/numpy</code>, 手动删掉它！</p>
+<p>&emsp;pip安装时既检查conda安装的package，也检查pip安装的package。不过，它只负责要什么装什么，不负责能不能把装的一堆packages打通，可能装好不work 😦。</p>
+<p>&emsp;另外<code>conda clean --all</code>命令可以帮助你清理掉一些无用的文件，包括缓存包、索引缓存、旧的日志文件和未使用的环境等，从而恢复 conda 环境的一部分“新状态”，建议多多使用。</p>
+<p>参考文章：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/395145313">pip install 和conda install有什么区别吗？</a></p>
+<hr>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45864922/article/details/145852969">https://blog.csdn.net/qq_45864922/article/details/145852969</a></p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>如何清空重置Conda的base环境</p><p><a href="https://xiaruncheng.fun/Tool/zh-CN/ad45adf9cfcf/">https://xiaruncheng.fun/Tool/zh-CN/ad45adf9cfcf/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Runcheng XIA</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2025-03-11</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2025-03-13</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/conda/">conda</a><a class="link-muted mr-2" rel="tag" href="/tags/python/">python</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/Tool/zh-CN/95117d3e2dd4/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">激活函数、损失函数和优化器</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/Article/zh-CN/99c54e4fb056/"><span class="level-item">Dedication to upward mobility might come at the cost of sentimental warmth</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><!--!--><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">Official XIA</a><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span><p class="is-size-7"><span>&copy; 2023-2025 Runcheng XIA <span style="color: #EF5350">with</span> ❤️</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.staticfile.net/jquery/3.3.1/jquery.min.js"></script><script src="https://cdn.staticfile.net/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdn.staticfile.net/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: ''
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><script src="https://cdn.staticfile.net/cookieconsent/3.1.1/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><div id="outdated"><h6>Your browser is out-of-date!</h6><p>Update your browser to view this website correctly.&amp;npsb;<a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p><p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">×</a></p></div><script src="https://cdn.staticfile.net/outdated-browser/1.1.5/outdatedbrowser.min.js" defer></script><script>window.addEventListener("load", function () {
+            outdatedBrowser({
+                bgColor: '#f25648',
+                color: '#ffffff',
+                lowerThan: 'object-fit' // display on IE11 or below
+            });
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
