@@ -11,7 +11,6 @@
           if (!$tabMenu) {
             return;
           }
- 
           const $tabMenuContainer = $tabMenu.parentElement.parentElement;
           Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
           Array.from($tabMenuContainer.querySelectorAll('a'))
